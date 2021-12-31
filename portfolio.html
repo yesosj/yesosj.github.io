@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PortFolio</title>
+<script src="https://kit.fontawesome.com/3dd72c5268.js" crossorigin="anonymous"></script>
+</head>
+<style>
+body{
+margin: 50px;
+background-color: hsl(0, 0%, 90%);
+height: 100vh;
+}
+.container{
+display: flex;
+flex-flow: row wrap;
+justify-content: flex-start;
+height: 800px;
+box-shadow: 3px 3px 7px black;
+}
+.container1{
+display: flex;
+height: 800px;
+position: relative;
+}
+.container2{
+display: flex;
+width: 170px;
+height: 800px;
+background-color: rgb(255, 163, 72,0.6);
+}
+.container3{
+display: flex;
+flex-direction: column;
+width: 1069px;
+height: 800px;
+border-left: 2px dashed gray;
+text-align: center;
+justify-content: center;
+background-image: url('./pngwing.com.png');
+background-repeat: repeat;
+}
+.box0{
+width: 200px;
+height: 300px;
+
+
+}
+.box1{
+width: 100px;
+height: 300px;
+background-color: black;
+border-bottom-right-radius: 40%
+
+}
+.box2{
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 10px;
+height: 800px;
+font-size: 70px;
+font-family: Courier New;
+}
+.box2 > p{
+margin: 35px;
+}
+
+
+.box3{
+display: flex;
+flex-direction: column;
+justify-content: center;
+font-size: 17px;
+
+}
+.box3 > p{
+margin: 15px;
+}
+.box4{
+border-left: 5px solid rgb(128, 128, 128,0.5);
+height: 800px;
+box-sizing: border-box;
+}
+.icon{
+font-size: 25px;
+position: absolute;
+bottom: 100px;
+left: 100px;
+}
+.box5{
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+text-align: center;
+width: 150px;
+padding: 100px 30px;
+}
+.box5 button{
+cursor: pointer;
+font-size: 20px;
+text-align: center;
+width: 105px;
+padding: 10px;
+border: none;
+background-color: rgb(128, 128, 128,0.5);
+color: white;
+}
+.box5 button:link, button:visited{
+background-color: rgb(128, 128, 128,0.5);
+color: white;
+}
+.box5 button:hover, button:active{
+background-color: rgb(70, 70, 70,0.8);
+
+}
+
+.who > h1{
+font-style: italic;
+margin: 50px;
+}
+#who1{
+position: relative;
+}
+#education1{
+width: 500px;
+height: 500px;
+position: absolute;
+top: 200px;
+right: 350px;
+line-height: 50px;
+}
+#history1{
+width: 500px;
+height: 500px;
+position: absolute;
+top: 200px;
+right: 350px;
+line-height: 50px;
+}
+#skill1{
+position: relative;
+width: 500px;
+height: 500px;
+position: absolute;
+top: 200px;
+right: 350px;
+line-height: 50px;
+}
+#skillIcon{
+width: 400px;
+height: 400px;
+position: absolute;
+top: 50px;
+left: 50px;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+font-size: 100px;
+}
+#hobby1{
+position: relative;
+width: 500px;
+height: 500px;
+position: absolute;
+top: 200px;
+right: 350px;
+line-height: 50px;
+}
+#hobbyIcon{
+width: 400px;
+height: 400px;
+position: absolute;
+top: 50px;
+left: 50px;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+font-size: 30px;
+}
+</style>
+
+<body>
+<div class="container">
+
+
+<div class="container1">
+<div class="box0"></div>
+<div class="box1"></div>
+<div class="box2">
+<p>POR</p>
+<P>TFO</P>
+<P>LIO</P>
+</div>
+<div class="box3">
+<p>O</p>
+<P>H</P>
+<br>
+<p>S</p>
+<p>E</p>
+<p>U</p>
+<p>N</p>
+<p>G</p>
+<br>
+<p>J</p>
+<p>U</p>
+<p>N</p>
+</div>
+<div class="box4">
+</div>
+<div class="icon">
+<a href="https://facebook.com" style="text-decoration: none; color: black;" class="fab fa-facebook"></a>
+<a href="https://www.instagram.com/heart_257/" style="text-decoration: none; color: black;" class="fab fa-instagram"></a>
+<i class="fab fa-twitter"></i>
+<i class="fab fa-youtube"></i>
+</div>
+</div>
+
+
+<div class="container2">
+<div class="box5">
+<button onclick="moveToWho()">Who</button>
+
+<button onclick="moveToEducation()">Education</button>
+
+<button onclick="moveToHistory()">History</button>
+<button onclick="moveToSkill()">Skill</button>
+
+<button onclick="moveToHobby()">Hobby</button>
+</div>
+</div>
+
+
+<div class="container3">
+
+<div id="who1" class="who" style="visibility: hidden;">
+<h1>안녕하세요!<br>웹 개발자, 광운대학생 오승준입니다.</h1>
+<h4>Date of birth</h4>
+<i class="fa-solid fa-cake-candles"></i> : 2001.01.20
+<h4>Address</h4>
+<i class="fa-solid fa-location-dot"></i> : 경기도 수원시 영통구
+<h4>Tel</h4>
+<i class="fa-solid fa-phone"></i> : 010-4335-2232
+<h4>Mail</h4>
+<i class="fa-solid fa-n" style="color: black;"></i> : yesosj@naver.com <br>
+<i class="fa-solid fa-g" style="color: black;"></i> : yesosj175@google.com
+</div>
+<div id="education1" class="who" style="visibility: hidden;">
+<h1>Education</h1>
+<h4>2008.03 ~ 2014.02 &emsp; 영통초등학교</h4>
+<h4>2014.03 ~ 2017.02 &emsp; &emsp; 영일중학교</h4>
+<h4>2017.03 ~ 2020.02 &emsp; 매원고등학교</h4>
+<h4>2020.03 ~ &emsp; &emsp; &emsp; &emsp; &emsp; 광운대학교</h4>
+</div>
+
+<div id="history1" class="who" style="visibility: hidden;">
+<h1>History</h1>
+<h4>2020.04.27 &emsp; 운명의 날</h4>
+<h4>2021.05.10 &emsp; 공군 입대일</h4>
+<h4>2023.02.09 &emsp; 오지 않는날</h4>
+</div>
+
+<div id="skill1" class="who" style="visibility: hidden;">
+<h1>Skill</h1>
+<div id="skillIcon">
+<i class="fa-brands fa-html5"></i>
+<i class="fa-brands fa-css3-alt"></i>
+<i class="fa-brands fa-js-square"></i>
+</div>
+</div>
+
+<div id="hobby1" class="who" style="visibility: hidden;">
+<h1>Hobby</h1><br>
+<div id="hobbyIcon">
+<i class="fa-solid fa-feather-pointed">&ensp;시 쓰기</i>
+<i class="fa-solid fa-microphone">&ensp;랩 하기</i>
+<i class="fa-solid fa-laptop-code">&ensp;코딩 하기</i>
+</div>
+</div>
+</div>
+</div>
+
+
+<script>
+let a,b,c,d,e=0;
+function moveToWho(){
+++a;
+if(a%2==0){
+document.getElementById("who1").style.visibility = "hidden";
+document.getElementById("education1").style.visibility = "hidden";
+document.getElementById("history1").style.visibility = "hidden"
+document.getElementById("skill1").style.visibility = "hidden";
+document.getElementById("hobby1").style.visibility = "hidden";
+}
+else{
+document.getElementById("who1").style.visibility = "visible";
+document.getElementById("education1").style.visibility = "hidden";
+document.getElementById("history1").style.visibility = "hidden";
+document.getElementById("skill1").style.visibility = "hidden";
+document.getElementById("hobby1").style.visibility = "hidden";
+}
+}
+function moveToEducation(){
+++b;
+if(b%2==0)
+{document.getElementById("education1").style.visibility = "hidden";
+document.getElementById("who1").style.visibility = "hidden";
+document.getElementById("history1").style.visibility = "hidden";
+document.getElementById("skill1").style.visibility = "hidden";
+document.getElementById("hobby1").style.visibility = "hidden";}
+else{
+document.getElementById("education1").style.visibility = "visible";
+document.getElementById("who1").style.visibility = "hidden";
+document.getElementById("history1").style.visibility = "hidden";
+document.getElementById("skill1").style.visibility = "hidden";
+document.getElementById("hobby1").style.visibility = "hidden";
+}
+}
+function moveToHistory(){
+++c;
+if(c%2==0)
+{document.getElementById("history1").style.visibility = "hidden";
+document.getElementById("who1").style.visibility = "hidden";
+document.getElementById("education1").style.visibility = "hidden";
+document.getElementById("skill1").style.visibility = "hidden";
+document.getElementById("hobby1").style.visibility = "hidden";}
+else{
+document.getElementById("history1").style.visibility = "visible";
+document.getElementById("who1").style.visibility = "hidden";
+document.getElementById("education1").style.visibility = "hidden";
+document.getElementById("skill1").style.visibility = "hidden";
+document.getElementById("hobby1").style.visibility = "hidden";
+}
+}
+function moveToSkill(){
+++d;
+if(d%2==0)
+{document.getElementById("skill1").style.visibility = "hidden";
+document.getElementById("education1").style.visibility = "hidden";
+document.getElementById("history1").style.visibility = "hidden";
+document.getElementById("who1").style.visibility = "hidden";
+document.getElementById("hobby1").style.visibility = "hidden";}
+else{
+document.getElementById("skill1").style.visibility = "visible";
+document.getElementById("who1").style.visibility = "hidden";
+document.getElementById("education1").style.visibility = "hidden";
+document.getElementById("history1").style.visibility = "hidden";
+document.getElementById("hobby1").style.visibility = "hidden";
+}
+}
+function moveToHobby(){
+++e;
+if(e%2==0)
+{document.getElementById("hobby1").style.visibility = "hidden";
+document.getElementById("skill1").style.visibility = "hidden";
+document.getElementById("education1").style.visibility = "hidden";
+document.getElementById("history1").style.visibility = "hidden";
+document.getElementById("who1").style.visibility = "hidden";}
+else{
+document.getElementById("hobby1").style.visibility = "visible";
+document.getElementById("who1").style.visibility = "hidden";
+document.getElementById("education1").style.visibility = "hidden";
+document.getElementById("history1").style.visibility = "hidden";
+document.getElementById("skill1").style.visibility = "hidden";
+}
+}
+</script>
+</body>
+</html>
