@@ -184,34 +184,54 @@ body{
 
 
 
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 414px){
+    body{
+        margin: 10px;
+    }
     .container{
-        height: 2560px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        width: 240px;
+        height: 1000px;
     }
     .container1{
-        height: 2560px;
+        display: flex;
+        justify-content: space-around;
+        width: 500px;
+        height: 500px;
     }
     .box0{
         width: 0px;
     }
     .box1{
-        width: 100px;
-        height: 600px;
+        width: 40px;
+        height: 150px;
     }
     .box2{
-        height: 2500px;
-        font-size: 100px;
+        line-height: 1px;
+        height: 250px;
+        font-size: 30px;
+    }
+    .box2 > p{
+        margin: 20px;
     }
     .box3{
-        height: 2500px;
-        font-size: 40px;
+        height: 200px;
+        
+        
+    }
+    .box3 > p{
+        margin: 0px;
+        font-size: 1px;
+        line-height: 12px;
     }
     .box4{
-        width: 10px;
-        height: 2560px;
+        border-left: 3px solid rgb(128, 128, 128,0.5);
+        height: 560px;
     }
     .icon{
-        width: 300px;
+        width: 240px;
         height: 50px;
         display: flex;
         justify-content: space-evenly;
@@ -219,40 +239,43 @@ body{
         border-style: solid;
         padding: 10px 0px 0px 0px;
         border-width: 2px 0px 0px 0px;
-        font-size: 70px;
+        font-size: 18px;
         position: absolute;
-        bottom: 500px;
-        left: 100px;
+        bottom: 230px;
+        left: 0px;
     }
     .container2{
-        width: 150px;
-        height: 2560px;
+        width: 240px;
+        height: 50px;
+        position: absolute;
+        top: 260px;
     }
     .box5{
-        height: 2560px;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 90px;
+        flex-direction: row;
+        justify-content: space-between;
+        position: absolute;
+        top: -90px;
+        left: -30px;
+        
     }
     .box5 button{
-        font-size: 30px;
-        word-wrap: break-word;
-        width: 105px;
-        height: 300px;
+        font-size: 5px;
+        width: 61px;
+        height: 50px;
         padding: 10px;
     }
     .container3{
-        width: 905px;
-        height: 2560px;
+        width: 300px;
+        height: 100px;
     }
     .who > h1{
-        font-size: 95px;
+        font-size: 1px;
         margin: 50px 50px 50px -20px;
     }
     #who1{
         position: relative;
-        font-size: 50px;
+        font-size: 1px;
     }
 
     #education1{
@@ -260,7 +283,7 @@ body{
         top: 700px;
         right: 200px;
         line-height: 50px;
-        font-size: 50px;
+        font-size: 5px;
         line-height: 100px;
     }
     #history1{
@@ -268,7 +291,7 @@ body{
         top: 700px;
         right: 200px;
         line-height: 50px;
-        font-size: 50px;
+        font-size: 5px;
         line-height: 100px;
     }
     #skill1{
@@ -276,14 +299,14 @@ body{
         top: 700px;
         right: 200px;
         line-height: 50px;
-        font-size: 50px;
+        font-size: 5px;
         line-height: 100px;
     }
     #skillIcon{
         position: absolute;
         top: 300px;
         left: 10px;
-        font-size: 150px;
+        font-size: 50px;
     }
     #hobby1{
         position: absolute;
