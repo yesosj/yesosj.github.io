@@ -6,9 +6,9 @@ body{
     }
 .container{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: flex-start;
-    height: 1000px;
+    height: 800px;
     box-shadow: 3px 3px 7px black;
     }
 .container1{
@@ -34,15 +34,12 @@ body{
 .box0{
     width: 200px;
     height: 300px;
-    
-    
     }
 .box1{
     width: 100px;
     height: 300px;
     background-color: black;
     border-bottom-right-radius: 40%
-    
     }
 .box2{
     display: flex;
@@ -56,8 +53,6 @@ body{
 .box2 > p{
     margin: 35px;
     }
-    
-    
 .box3{
     display: flex;
     flex-direction: column;
@@ -111,13 +106,11 @@ body{
     }
 .box5 button:hover, button:active{
     background-color: rgb(70, 70, 70,0.8);
-    
     }
-    
 .who > h1{
     font-style: italic;
     margin: 50px;
-    font-size: 50px;
+    font-size: 40px;
     }
 #who1{
     position: relative;
@@ -128,7 +121,7 @@ body{
     height: 500px;
     position: absolute;
     top: 200px;
-    right: 350px;
+    right: 220px;
     line-height: 50px;
     font-size: 20px;
     }
@@ -137,7 +130,7 @@ body{
     height: 500px;
     position: absolute;
     top: 200px;
-    right: 350px;
+    right: 220px;
     line-height: 50px;
     font-size: 20px;
     }
@@ -147,7 +140,7 @@ body{
     height: 500px;
     position: absolute;
     top: 200px;
-    right: 350px;
+    right: 220px;
     line-height: 50px;
     }
 #skillIcon{
@@ -167,7 +160,7 @@ body{
     height: 500px;
     position: absolute;
     top: 200px;
-    right: 350px;
+    right: 220px;
     line-height: 50px;
     }
 #hobbyIcon{
