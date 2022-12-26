@@ -177,7 +177,7 @@ body{
 
 
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 768px){
     body{
         margin: 10px;
     }
@@ -185,8 +185,8 @@ body{
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
-        width: 800px;
-        height: 1400px;
+        width: 100px;
+        height: 100px;
     }
     .container1{
         display: flex;
@@ -246,7 +246,7 @@ body{
 
     }
     .container2{
-        width: 800px;
+        width: 100px;
         height: 80px;
         position: absolute;
         top: 400px;
@@ -268,8 +268,8 @@ body{
         padding: 10px;
     }
     .container3{
-        width: 800px;
-        height: 1400px;
+        width: 100px;
+        height: 100px;
     }
     .who > h1{
         font-size: 28px;
