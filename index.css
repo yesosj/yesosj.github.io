@@ -179,20 +179,20 @@ body{
 
 @media screen and (max-width: 768px){
     body{
-        margin: 10px;
+        margin: 50px;
     }
     .container{
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
-        width: 740px;
-        height: 869px;
+        width: 755px;
+        height: 1500px;
     }
     .container1{
         display: flex;
         justify-content: space-around;
-        width: 700px;
-        height: 500px;
+        width: 755px;
+        height: 1500px;
     }
     .box0{
         width: 0px;
@@ -246,8 +246,8 @@ body{
 
     }
     .container2{
-        width: 740px;
-        height: 80px;
+        width: 755px;
+        height: 1500px;
         position: absolute;
         top: 400px;
     }
