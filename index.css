@@ -185,14 +185,14 @@ body{
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
-        width: 755px;
-        height: 1500px;
+        width: 90%;
+        height: 85%;
     }
     .container1{
         display: flex;
         justify-content: space-around;
-        width: 755px;
-        height: 1500px;
+        width: 90%;
+        height: 85%;
     }
     .box0{
         width: 0px;
@@ -207,8 +207,9 @@ body{
         line-height: 50px;
         height: 450px;
         font-size: 70px;
+        font-weight: bold;
         position: absolute;
-        right: 200px;
+        right: 250px;
     }
     .box2 > p{
         margin: 20px;
@@ -241,12 +242,12 @@ body{
         border-width: 0px 0px 0px 0px;
         font-size: 35px;
         position: absolute;
-        bottom: 110px;
-        left: 690px;
+        top: 50px;
+        left: 730px;
 
     }
     .container2{
-        width: 755px;
+        width: 90%;
         height: 1500px;
         position: absolute;
         top: 400px;
@@ -255,7 +256,7 @@ body{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 740px;
+        width: 90%;
         position: absolute;
         top: -90px;
         left: -30px;
@@ -263,20 +264,20 @@ body{
     }
     .box5 button{
         font-size: 20px;
-        width: 740px;
+        width: 90%;
         height: 80px;
         padding: 10px;
     }
     .container3{
-        width: 740px;
-        height: 500px;
+        width: 90%;
+        height: 85%;
     }
     .who > h1{
-        font-size: 28px;
+        font-size: 40px;
         margin: 0px 0px 50px 0px;
     }
     #who1{
-        font-size: 20px;
+        font-size: 30px;
         position: absolute;
         top: 550px;
         left: 170px;
