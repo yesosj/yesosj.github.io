@@ -179,19 +179,19 @@ body{
 
 @media screen and (max-width: 768px){
     body{
-        margin: 50px;
+        margin: 5px;
     }
     .container{
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
-        width: 500px;
+        width: 412px;
        
     }
     .container1{
         display: flex;
         justify-content: space-around;
-        width: 500px;
+        width: 412px;
      
     }
     .box0{
@@ -247,7 +247,7 @@ body{
 
     }
     .container2{
-        width: 500px;
+        width: 412px;
      
         position: absolute;
         top: 400px;
@@ -268,7 +268,7 @@ body{
         padding: 10px;
     }
     .container3{
-        width: 500px;
+        width: 412px;
    
     }
     .who > h1{
