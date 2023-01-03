@@ -270,6 +270,7 @@ body{
     .container3{
         width: 412px;
         position: absolute;
+        border-left: none;
         top: 350px;
         left: 50px;
    
