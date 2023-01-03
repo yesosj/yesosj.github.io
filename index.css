@@ -185,7 +185,7 @@ body{
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
-        width: 412px;
+        width: 4px;
        
     }
     .container1{
@@ -198,24 +198,24 @@ body{
         width: 0px;
     }
     .box1{
-        width: 100px;
-        height: 300px;
+        width: 70px;
+        height: 180px;
         position: absolute;
-        left: 150px;
+        left: 50px;
     }
     .box2{
-        line-height: 50px;
-        height: 450px;
+        line-height: 25px;
+        height: 200px;
         font-size: 70px;
         font-weight: bold;
         position: absolute;
-        right: 250px;
+        right: 100px;
     }
     .box2 > p{
         margin: 20px;
     }
     .box3{
-        height: 480px;
+        height: 250px;
         position: absolute;
         right: 50px;
         
@@ -248,9 +248,9 @@ body{
     }
     .container2{
         width: 412px;
-     
+        height: 50px;
         position: absolute;
-        top: 400px;
+        top: 250px;
     }
     .box5{
         display: flex;
@@ -269,6 +269,9 @@ body{
     }
     .container3{
         width: 412px;
+        position: absolute;
+        top: 350px;
+        left: 50px;
    
     }
     .who > h1{
