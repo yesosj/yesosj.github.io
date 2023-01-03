@@ -185,13 +185,13 @@ body{
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
-        width: 100%;
+        width: 500px;
        
     }
     .container1{
         display: flex;
         justify-content: space-around;
-        width: 100%;
+        width: 500px;
      
     }
     .box0{
@@ -247,7 +247,7 @@ body{
 
     }
     .container2{
-        width: 100%;
+        width: 500px;
      
         position: absolute;
         top: 400px;
@@ -268,7 +268,7 @@ body{
         padding: 10px;
     }
     .container3{
-        width: 100%;
+        width: 500px;
    
     }
     .who > h1{
