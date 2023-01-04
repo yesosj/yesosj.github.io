@@ -178,9 +178,9 @@ body{
 
 
 @media screen and (max-width: 768px){
-    body{
+    html, body{
         margin: 10px;
-        width: 412px;
+        width: 100%;
         height: 815px;
         overflow-x: hidden;
     }
