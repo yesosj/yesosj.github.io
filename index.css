@@ -181,7 +181,8 @@ body{
     body{
         margin: 10px;
         width: 412px;
-        height: 100vh
+        height: 815px;
+        overflow-x: hidden;
     }
     .container{
         display: flex;
