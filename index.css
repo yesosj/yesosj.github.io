@@ -180,14 +180,14 @@ body{
 @media screen and (max-width: 768px){
     body{
         margin: 10px;
-        width: 480px;
-        height: 815px;
+        width: 412px;
+        height: 100vh
     }
     .container{
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: row nowrap;
         justify-content: flex-start;
-        width: 480px;
+        width: 392px;
         height: 815px;
        
     }
