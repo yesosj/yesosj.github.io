@@ -180,8 +180,8 @@ body{
 @media screen and (max-width: 768px){
     body{
         margin: 10px;
-        width: 412px;
-        height: 815px;
+        width: 392px;
+        height: 700px;
     }
     .container{
         display: flex;
@@ -282,7 +282,13 @@ body{
         width: 100%;
         padding: 10px;
     }
-    
+    .box5 button:link, button:visited{
+        background-color: rgb(128, 128, 128,0.5);
+        color: white;
+    }
+    .box5 button:hover, button:active{
+        background-color: rgb(70, 70, 70,0.8);
+    }
     .who > h1{
         font-size: 40px;
         margin: 0px 0px 50px 0px;
