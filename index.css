@@ -39,6 +39,8 @@ body{
     width: 100px;
     height: 300px;
     background-color: black;
+    position : absolute;
+    left : 100px;
     border-bottom-right-radius: 40%
     }
 .box2{
@@ -180,7 +182,7 @@ body{
 @media screen and (max-width: 768px){
     html, body{
         margin: 10px;
-        width: 100%;
+        width: 412px;
         height: 815px;
         overflow-x: hidden;
     }
