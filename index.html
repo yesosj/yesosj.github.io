@@ -2,12 +2,22 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>내 포트폴리오</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* 페이지 스크롤을 방지합니다. */
+        }
+        iframe {
+            width: 100vw; /* 뷰포트 너비의 100% */
+            height: 100vh; /* 뷰포트 높이의 100% */
+            border: none; /* 프레임 테두리를 제거합니다. */
+        }
+    </style>
 </head>
 <body>
-    <h1>내 포트폴리오</h1>
-    <p>아래 링크를 클릭하여 포트폴리오를 확인하세요.</p>
-    
-    <a href="portfolio.pdf" target="_blank">PDF 포트폴리오 보기</a>
+    <iframe src="portfolio.pdf" title="포트폴리오"></iframe>
 </body>
 </html>
