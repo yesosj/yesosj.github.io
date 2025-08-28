@@ -1,36 +1,97 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Portfolio PDF Viewer</title>
-    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
-  </head>
-  <body>
-    <canvas id="pdf-render"></canvas>
+<head>
+  <meta charset="utf-8">
+  <title>Portfolio PDF Viewer</title>
+  <style>
+    body { text-align: center; font-family: Arial, sans-serif; }
+    #the-canvas { border: 1px solid black; margin-top: 20px; }
+    button { margin: 10px; padding: 10px 20px; font-size: 16px; }
+  </style>
+  <!-- pdf.js 2.x 버전 사용 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+</head>
+<body>
+  <h2>Portfolio PDF Viewer</h2>
+  <div>
+    <button id="prev-page">◀ Previous</button>
+    <button id="next-page">Next ▶</button>
+    <span>Page: <span id="page-num">1</span> / <span id="page-count">?</span></span>
+  </div>
+  <canvas id="the-canvas"></canvas>
 
-    <script>
-      const url = '/portfolio.pdf'; // 내 PDF 파일 경로
-      let pdfjsLib = window['pdfjs-dist/build/pdf'];
-      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://mozilla.github.io/pdf.js/build/pdf.worker.js';
+  <script>
+    const url = './portfolio.pdf'; // PDF 파일 경로 (index.html과 같은 폴더)
 
-      let loadingTask = pdfjsLib.getDocument(url);
-      loadingTask.promise.then(function(pdf) {
-        pdf.getPage(1).then(function(page) {
-          let scale = 1.5;
-          let viewport = page.getViewport({scale: scale});
+    const pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-          let canvas = document.getElementById('pdf-render');
-          let context = canvas.getContext('2d');
-          canvas.height = viewport.height;
-          canvas.width = viewport.width;
+    let pdfDoc = null,
+        pageNum = 1,
+        pageRendering = false,
+        pageNumPending = null,
+        scale = 1.5,
+        canvas = document.getElementById('the-canvas'),
+        ctx = canvas.getContext('2d');
 
-          let renderContext = {
-            canvasContext: context,
-            viewport: viewport
-          };
-          page.render(renderContext);
+    // 페이지 렌더링 함수
+    function renderPage(num) {
+      pageRendering = true;
+      pdfDoc.getPage(num).then(function(page) {
+        const viewport = page.getViewport({ scale: scale });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        const renderContext = {
+          canvasContext: ctx,
+          viewport: viewport
+        };
+        const renderTask = page.render(renderContext);
+
+        renderTask.promise.then(function() {
+          pageRendering = false;
+          if (pageNumPending !== null) {
+            renderPage(pageNumPending);
+            pageNumPending = null;
+          }
         });
       });
-    </script>
-  </body>
+
+      document.getElementById('page-num').textContent = num;
+    }
+
+    function queueRenderPage(num) {
+      if (pageRendering) {
+        pageNumPending = num;
+      } else {
+        renderPage(num);
+      }
+    }
+
+    function onPrevPage() {
+      if (pageNum <= 1) return;
+      pageNum--;
+      queueRenderPage(pageNum);
+    }
+
+    function onNextPage() {
+      if (pageNum >= pdfDoc.numPages) return;
+      pageNum++;
+      queueRenderPage(pageNum);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', onPrevPage);
+    document.getElementById('next-page').addEventListener('click', onNextPage);
+
+    // PDF 로드
+    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+      pdfDoc = pdfDoc_;
+      document.getElementById('page-count').textContent = pdfDoc.numPages;
+      renderPage(pageNum);
+    }).catch(function(error) {
+      console.error('PDF loading error: ', error);
+    });
+  </script>
+</body>
 </html>
