@@ -8,19 +8,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
   
   <style>
-    /* 기본 여백을 모두 없애서 브라우저 끝까지 꽉 차게 만듭니다 */
     body { 
       margin: 0; 
       padding: 0;
-      background-color: #000; 
-      overflow-x: hidden; /* 가로 스크롤 방지 */
+      background-color: #222; /* 페이지 사이 틈새로 보일 어두운 배경색 */
+      overflow-x: hidden; 
     }
+    
     #pdf-container {
       width: 100%;
       display: flex; 
       flex-direction: column; 
       align-items: center; 
+      padding-top: 10px; /* 맨 위 살짝 여백 */
+      padding-bottom: 20px; /* 맨 아래 살짝 여백 */
     }
+    
     .loading {
       color: #fff;
       margin-top: 40vh;
@@ -28,20 +31,20 @@
       font-size: 16px;
     }
 
-    /* 각 페이지를 감싸는 뼈대 - 100% 꽉 채우기 */
+    /* 각 페이지를 감싸는 뼈대 */
     .page-wrapper {
       position: relative;
-      width: 100%; /* 좌우 여백 없이 100% 꽉 채움 */
-      max-width: none; /* PC에서도 꽉 차도록 최대 너비 제한 해제 */
-      margin-bottom: 0; /* 페이지 사이 여백 제거 (자연스럽게 이어짐) */
+      width: 100%; /* 가로는 꽉 차게 유지 */
+      margin-bottom: 20px; /* ⭐ 페이지와 페이지 사이의 간격 (구분선 역할) */
       background-color: white; 
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.6); /* ⭐ 페이지 하단에 입체적인 그림자 추가 */
     }
 
     /* 실제 PDF가 그려지는 그림판 */
     canvas { 
       width: 100%; 
       height: auto; 
-      display: block; /* 캔버스 하단 빈 공간 제거 */
+      display: block; 
     }
 
     /* 캔버스 위에 올라가는 투명한 링크 레이어 */
@@ -51,13 +54,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none; /* 빈 공간 클릭은 통과시킴 */
+      pointer-events: none; 
     }
 
     /* 실제 클릭되는 a 태그 영역 */
     .annotation-layer a {
       position: absolute;
-      pointer-events: auto; /* 링크 위치만 클릭 활성화 */
+      pointer-events: auto; 
     }
   </style>
 </head>
@@ -67,10 +70,8 @@
   </div>
 
   <script>
-    // PDF.js 워커 설정 (필수)
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-    // 💡 요청하신 대소문자에 맞춘 파일 경로
     const url = '/PortFolio.pdf'; 
 
     pdfjsLib.getDocument(url).promise.then(pdf => {
@@ -78,7 +79,6 @@
       const container = document.getElementById('pdf-container');
 
       for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-        // 순서 꼬임 방지를 위해 미리 뼈대(div) 생성
         const wrapper = document.createElement('div');
         wrapper.className = 'page-wrapper';
         wrapper.id = 'page-wrapper-' + pageNum;
@@ -87,11 +87,8 @@
         pdf.getPage(pageNum).then(page => {
           const currentWrapper = document.getElementById('page-wrapper-' + pageNum);
           
-          // 1. 레이아웃 및 좌표 계산을 위한 기본 뷰포트
           const baseViewport = page.getViewport({ scale: 1.0 });
-          
-          // 2. 글씨 깨짐 방지를 위한 초고해상도 렌더링 배율 (2.5배 뻥튀기)
-          const renderScale = 2.5; 
+          const renderScale = 2.5; // 초고화질 유지
           const renderViewport = page.getViewport({ scale: renderScale });
           
           const canvas = document.createElement('canvas');
@@ -105,7 +102,6 @@
             viewport: renderViewport
           };
           
-          // 3. 캔버스 렌더링 후 링크 좌표 씌우기
           page.render(renderContext).promise.then(() => {
             return page.getAnnotations();
           }).then(annotations => {
@@ -119,9 +115,8 @@
               if (anno.subtype === 'Link' && anno.url) {
                 const a = document.createElement('a');
                 a.href = anno.url;
-                a.target = '_blank'; // 새 창으로 열기
+                a.target = '_blank';
                 
-                // PDF 내부 좌표를 퍼센트(%)로 변환하여 모바일/PC 화면 크기 변화에 대응
                 const rect = baseViewport.convertToViewportRectangle(anno.rect);
                 
                 const left = Math.min(rect[0], rect[2]);
