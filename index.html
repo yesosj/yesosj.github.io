@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>포트폴리오</title>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -11,8 +11,8 @@
     body { 
       margin: 0; 
       padding: 0;
-      background-color: #222; /* 페이지 사이 틈새로 보일 어두운 배경색 */
-      overflow-x: hidden; 
+      background-color: #222; 
+      /* 확대 후 좌우 이동을 위해 overflow-x: hidden 삭제 */
     }
     
     #pdf-container {
@@ -20,8 +20,8 @@
       display: flex; 
       flex-direction: column; 
       align-items: center; 
-      padding-top: 10px; /* 맨 위 살짝 여백 */
-      padding-bottom: 20px; /* 맨 아래 살짝 여백 */
+      padding-top: 10px; 
+      padding-bottom: 20px; 
     }
     
     .loading {
@@ -31,23 +31,20 @@
       font-size: 16px;
     }
 
-    /* 각 페이지를 감싸는 뼈대 */
     .page-wrapper {
       position: relative;
-      width: 100%; /* 가로는 꽉 차게 유지 */
-      margin-bottom: 20px; /* ⭐ 페이지와 페이지 사이의 간격 (구분선 역할) */
+      width: 100%; 
+      margin-bottom: 20px; 
       background-color: white; 
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.6); /* ⭐ 페이지 하단에 입체적인 그림자 추가 */
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.6); 
     }
 
-    /* 실제 PDF가 그려지는 그림판 */
     canvas { 
       width: 100%; 
       height: auto; 
       display: block; 
     }
 
-    /* 캔버스 위에 올라가는 투명한 링크 레이어 */
     .annotation-layer {
       position: absolute;
       top: 0;
@@ -57,7 +54,6 @@
       pointer-events: none; 
     }
 
-    /* 실제 클릭되는 a 태그 영역 */
     .annotation-layer a {
       position: absolute;
       pointer-events: auto; 
@@ -88,7 +84,7 @@
           const currentWrapper = document.getElementById('page-wrapper-' + pageNum);
           
           const baseViewport = page.getViewport({ scale: 1.0 });
-          const renderScale = 2.5; // 초고화질 유지
+          const renderScale = 2.5; 
           const renderViewport = page.getViewport({ scale: renderScale });
           
           const canvas = document.createElement('canvas');
