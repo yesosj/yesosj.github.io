@@ -2,101 +2,32 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>포트폴리오 고화질 보기</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>포트폴리오</title>
   <style>
+    /* 기본 여백 없애고 배경색 지정 */
     body { 
       margin: 0; 
-      background-color: #f0f0f0; /* 배경을 좀 더 밝게 */
-      font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+      padding: 0;
+      background-color: #222; /* 배경이 어두운 게 이미지가 돋보여. 하얀색을 원하면 #fff로 변경 */
+      text-align: center; 
     }
-    #pdf-container {
+    
+    /* 이미지가 모바일 화면에 꽉 차게, 비율 유지 */
+    .portfolio-page {
       width: 100%;
-      height: 100vh; /* 화면 전체 높이 사용 */
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      overflow-y: auto; /* 세로 스크롤 활성화 */
-      padding: 10px 0; /* 위아래 여백 */
-    }
-    .loading {
-      color: #333;
-      margin-top: 50vh;
-      transform: translateY(-50%);
-    }
-    canvas { 
-      max-width: 95%; /* 모바일에서 좌우 여백 확보 */
-      width: auto; /* 고화질 유지 */
-      margin-bottom: 10px; /* 각 페이지 간격 */
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* 그림자 효과 */
-      display: block; /* 캔버스 간 불필요한 공백 제거 */
+      max-width: 800px; /* PC에서 이미지가 너무 무식하게 커지는 것 방지 */
+      height: auto;
+      display: block;
+      margin: 0 auto; /* PC 화면에서 가운데 정렬 */
+      margin-bottom: 5px; /* 페이지 사이 약간의 틈 (딱 붙이고 싶으면 0으로 수정) */
     }
   </style>
 </head>
 <body>
-  <div id="pdf-container">
-    <div id="loading" class="loading">PDF를 불러오는 중입니다...</div>
-  </div>
-
-  <script>
-    // PDF.js worker 설정 (필수)
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-
-    // PDF 파일 경로 (같은 서버에 있는 PORTFOLIO.pdf)
-    const url = '/PORTFOLIO.pdf'; 
-
-    pdfjsLib.getDocument(url).promise.then(pdf => {
-      document.getElementById('loading').style.display = 'none'; // 로딩 메시지 숨김
-      const container = document.getElementById('pdf-container');
-
-      // PDF의 모든 페이지를 순회하며 화면에 그리기
-      for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-        pdf.getPage(pageNum).then(page => {
-          // 기기의 픽셀 비율(DPI)을 가져옵니다. (아이폰은 보통 3.0, 최신 폰은 2.0 이상)
-          const dpr = window.devicePixelRatio || 1;
-          
-          // 사용자가 최종적으로 보고자 하는 기본 스케일 (여기서부터 뻥튀기합니다)
-          const baseScale = 1.0; 
-          
-          // CSS 크기를 계산하기 위한 뷰포트
-          const viewportForCSS = page.getViewport({ scale: baseScale });
-          
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
-          
-          // [핵심] 캔버스의 내부 그리기 해상도를 고화질로 설정합니다. (뻥튀기!)
-          canvas.height = viewportForCSS.height * dpr;
-          canvas.width = viewportForCSS.width * dpr;
-
-          // [핵심] 화면에 표시될 크기(CSS)는 원래 크기로 고정합니다.
-          canvas.style.height = viewportForCSS.height + 'px';
-          canvas.style.width = viewportForCSS.width + 'px';
-          
-          container.appendChild(canvas);
-
-          // [핵심] 그리기 컨텍스트를 기기 픽셀 비율만큼 확장합니다. (뻥튀기한 곳에 맞춰 그리기)
-          ctx.scale(dpr, dpr);
-
-          const renderContext = {
-            canvasContext: ctx,
-            viewport: viewportForCSS // 그리기 컨텍스트를 스케일링했으므로, 뷰포트는 원래 크기로 전달
-          };
-          
-          // 렌더링 시작. 고화질로 렌더링됩니다.
-          const renderTask = page.render(renderContext);
-          
-          // (선택 사항) 로딩 중 캔버스가 먼저 붙는 것을 방지하려면 rendering 후에 캔버스 추가
-          // renderTask.promise.then(() => container.appendChild(canvas));
-        });
-      }
-    }).catch(error => {
-      console.error('PDF 로드 실패:', error);
-      const loadingEl = document.getElementById('loading');
-      if (loadingEl) {
-        loadingEl.innerText = 'PDF를 불러올 수 없습니다. 직접 다운로드 해주세요.';
-      }
-    });
-  </script>
-</body>
+  <img src="./images/page1.jpg" class="portfolio-page" alt="포트폴리오 1페이지" />
+  <img src="./images/page2.jpg" class="portfolio-page" alt="포트폴리오 2페이지" />
+  <img src="./images/page3.jpg" class="portfolio-page" alt="포트폴리오 3페이지" />
+  
+  </body>
 </html>
