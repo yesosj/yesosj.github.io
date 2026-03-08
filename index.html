@@ -3,15 +3,23 @@
 <head>
 <meta charset="utf-8">
 <title>Portfolio</title>
+
 <style>
 html, body {
-  margin:0;
-  height:100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
-iframe {
-  width:100%;
-  height:100vh;
-  border:none;
+
+.viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
 }
 </style>
 </head>
@@ -19,6 +27,7 @@ iframe {
 <body>
 
 <iframe
+class="viewer"
 src="https://docs.google.com/gview?url=https://yesosj.github.io/PORTFOLIO.pdf&embedded=true">
 </iframe>
 
