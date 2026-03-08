@@ -71,7 +71,7 @@
     // PDF.js 워커 설정 (필수)
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-    const url = '/PORTFOLIO.pdf'; // 내 깃허브 서버의 PDF 파일 경로
+    const url = '/PortFolio.pdf'; // 내 깃허브 서버의 PDF 파일 경로
 
     pdfjsLib.getDocument(url).promise.then(pdf => {
       document.getElementById('loading').style.display = 'none';
