@@ -11,8 +11,8 @@
     body { 
       margin: 0; 
       padding: 0;
-      background-color: #222; 
-      /* 확대 후 좌우 이동을 위해 overflow-x: hidden 삭제 */
+      /* ⭐ 실제 PDF 뷰어들이 가장 많이 쓰는 눈이 편안한 차분한 회색 배경 */
+      background-color: #525659; 
     }
     
     #pdf-container {
@@ -34,9 +34,11 @@
     .page-wrapper {
       position: relative;
       width: 100%; 
-      margin-bottom: 20px; 
+      /* ⭐ 간격을 8px로 줄여서 문서가 끊기지 않고 자연스럽게 이어지도록 수정 */
+      margin-bottom: 8px; 
       background-color: white; 
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.6); 
+      /* ⭐ 그림자를 너무 진하지 않고 은은하고 부드럽게 퍼지도록 수정 */
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); 
     }
 
     canvas { 
