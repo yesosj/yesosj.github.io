@@ -30,15 +30,21 @@
       font-size: 16px;
     }
 
+    /* ⭐ 모바일 기본 설정: 화면에 100% 꽉 차게 */
     .page-wrapper {
       position: relative;
       width: 100%; 
-      /* ⭐ PC에서 너무 거대해지지 않도록 최대 너비를 900px로 제한 */
-      max-width: 900px; 
-      /* ⭐ 좌우 여백을 자동으로 맞춰서(auto) 화면 가운데 정렬하고, 하단 간격은 8px로 유지 */
       margin: 0 auto 8px auto; 
       background-color: white; 
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); 
+    }
+
+    /* ⭐ PC 화면 설정: 화면 너비가 768px 이상일 때만 아래 스타일 적용 */
+    @media (min-width: 768px) {
+      .page-wrapper {
+        width: 73%; /* PC에서만 전체 화면의 73% 비율로 축소 */
+        max-width: none; 
+      }
     }
 
     canvas { 
