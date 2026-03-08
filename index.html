@@ -5,29 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>포트폴리오</title>
   <style>
-    /* 기본 여백 없애고 배경색 지정 */
     body { 
       margin: 0; 
       padding: 0;
-      background-color: #222; /* 배경이 어두운 게 이미지가 돋보여. 하얀색을 원하면 #fff로 변경 */
+      background-color: #222; 
       text-align: center; 
+      font-family: 'Malgun Gothic', sans-serif; /* 버튼 폰트 깔끔하게 */
     }
     
-    /* 이미지가 모바일 화면에 꽉 차게, 비율 유지 */
     .portfolio-page {
       width: 100%;
-      max-width: 800px; /* PC에서 이미지가 너무 무식하게 커지는 것 방지 */
+      max-width: 800px; 
       height: auto;
       display: block;
-      margin: 0 auto; /* PC 화면에서 가운데 정렬 */
-      margin-bottom: 5px; /* 페이지 사이 약간의 틈 (딱 붙이고 싶으면 0으로 수정) */
+      margin: 0 auto; 
+    }
+
+    /* 이미지와 버튼들을 묶어주는 박스 */
+    .page-container {
+      margin-bottom: 20px; /* 페이지 세트 사이의 간격 */
+    }
+
+    /* 버튼들 모음 영역 */
+    .link-group {
+      margin-top: 5px;
+      margin-bottom: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px; /* 버튼 사이 간격 */
+    }
+
+    /* 예쁜 버튼 디자인 */
+    .link-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50; /* 버튼 색상 (초록색 톤) */
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    /* 버튼에 마우스 올렸을 때 색상 변화 */
+    .link-btn:hover {
+      background-color: #45a049;
+    }
+    
+    /* 유튜브 버튼용 다른 색상 (빨간색) */
+    .btn-youtube {
+      background-color: #FF0000;
+    }
+    .btn-youtube:hover {
+      background-color: #CC0000;
     }
   </style>
 </head>
 <body>
-  <img src="./images/page1.jpg" class="portfolio-page" alt="포트폴리오 1페이지" />
-  <img src="./images/page2.jpg" class="portfolio-page" alt="포트폴리오 2페이지" />
-  <img src="./images/page3.jpg" class="portfolio-page" alt="포트폴리오 3페이지" />
-  
-  </body>
+
+  <div class="page-container">
+    <img src="./image/page1.png" class="portfolio-page" alt="1페이지" />
+  </div>
+
+  <div class="page-container">
+    <img src="./image/page5.png" class="portfolio-page" alt="5페이지" />
+    <div class="link-group">
+      <a href="https://github.com/yesosi/Term-Projects/tree/00ce1be82ccdb06efee78d5e6951b5263fd99086/%EC%A3%BC%EC%B0%A8%EC%9E%A5%20%EA%B4%80%EB%A6%AC%20%EC%8B%9C%EC%8A%A4%ED%85%9C" target="_blank" class="link-btn">🚗 주차장 시스템 GitHub</a>
+      <a href="https://github.com/yesosj/Term-Projects/tree/2b5ede0b666210502c4b65602a1300369f30056d/%EC%98%A8%EC%8A%B5%EB%8F%84%20%EC%A1%B0%EC%A0%88%20%EC%8B%9C%EC%8A%A4%ED%85%9C" target="_blank" class="link-btn">🌡️ 온습도 조절 GitHub</a>
+    </div>
+  </div>
+
+  <div class="page-container">
+    <img src="./image/page12.png" class="portfolio-page" alt="12페이지" />
+    <div class="link-group">
+      <a href="https://youtube.com/shorts/9FXvY7QBWFI?si=G9wsftGRUBnUCPE" target="_blank" class="link-btn btn-youtube">▶️ Happy 시연 영상</a>
+      <a href="https://youtube.com/shorts/IV74Kfz21vg?si=CTQIJ190XI-3YKUB" target="_blank" class="link-btn btn-youtube">▶️ Sad 시연 영상</a>
+    </div>
+  </div>
+
+</body>
 </html>
