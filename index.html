@@ -115,10 +115,21 @@
             annotationLayer.className = 'annotation-layer';
             currentWrapper.appendChild(annotationLayer);
             
+            // 방문자의 브라우저 정보 가져오기
+            const userAgent = navigator.userAgent.toLowerCase();
+            
             annotations.forEach(anno => {
               if (anno.subtype === 'Link' && anno.url) {
                 const a = document.createElement('a');
-                a.href = anno.url;
+                
+                // ⭐ 카카오톡 환경인지 체크하여 링크 스키마 변경
+                let finalUrl = anno.url;
+                if (userAgent.indexOf('kakaotalk') > -1) {
+                  // 카카오톡 외부 브라우저(사파리/크롬)로 띄우는 스키마 적용
+                  finalUrl = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(anno.url);
+                }
+                
+                a.href = finalUrl;
                 a.target = '_blank';
                 
                 const rect = baseViewport.convertToViewportRectangle(anno.rect);
